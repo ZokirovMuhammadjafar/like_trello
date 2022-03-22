@@ -6,6 +6,7 @@ import jafar.trello.repositories.AuthRoleRepository;
 import jafar.trello.repositories.AuthUserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +32,8 @@ public class TrelloApplication {
     }
 
     @Transactional(timeout = 10)
-    public void run(String... args) throws Exception {
+//    @Bean
+    public void run() throws Exception {
         AuthUser admin = new AuthUser();
         admin.setUsername("admin");
         admin.setPassword(passwordEncoder.encode("123"));

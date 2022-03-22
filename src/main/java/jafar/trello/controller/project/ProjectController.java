@@ -1,5 +1,6 @@
 package jafar.trello.controller.project;
 
+import jafar.trello.dto.organization.OrganizationDto;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +31,8 @@ public class ProjectController {
     @RequestMapping("all/{org_id}")
     public String task(Model model,@PathVariable(name = "org_id") Long id) {
         model.addAttribute("projects", projectService.getAll(id));
-        model.addAttribute("organization", organizationService.get(id));
+        OrganizationDto organizationDto = organizationService.get(id);
+        model.addAttribute("organization",organizationDto );
         return "project/list";
     }
 

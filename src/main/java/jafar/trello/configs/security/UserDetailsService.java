@@ -17,7 +17,7 @@ public class UserDetailsService implements org.springframework.security.core.use
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AuthUser user = repository.getAuthUsersByUsernameAndDeletedFalse(username).get();
+        AuthUser user = repository.getAuthUsersByUsernameAndDeletedFalse(username).orElseThrow(()->{throw  new RuntimeException("Error");});
         return new jafar.trello.configs.security.UserDetails(user);
     }
 }

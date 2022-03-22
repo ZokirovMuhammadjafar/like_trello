@@ -4,7 +4,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: postrgres
+    password: postgres
   jpa:
     show-sql: true
     hibernate:
@@ -13,4 +13,4 @@ spring:
   messages:
     always-use-message-format: true
 server:
-  port: 808
+  port: 8080
